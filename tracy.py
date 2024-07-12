@@ -2,11 +2,8 @@ import logging
 import argparse
 import time 
 
-from opentelemetry import trace, context, baggage
+from opentelemetry import trace, context
 from opentelemetry.trace import NonRecordingSpan, SpanContext, TraceFlags
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import ConsoleSpanExporter, BatchSpanProcessor
-from opentelemetry.trace.propagation.tracecontext import TraceContextTextMapPropagator
 
 
 parser = argparse.ArgumentParser("opentelemetry-exporter")
@@ -34,7 +31,6 @@ if args.parentTraceId:
         #trace_id=340282366920938463463374607431768211455,
         #trace_id=int(args.parentTraceId),
         span_id=span.get_span_context().span_id,
-        #span_id=0,
         is_remote=True,
         trace_flags=TraceFlags(0x01))
     
