@@ -92,7 +92,7 @@ https://localhost:5601
 
 querying where tags key is "LES_ID" and value is "12345"
 ```
-curl -u elastic:$PASSWORD --insecure -X POST "https://localhost:9200/my-prefix-jaeger-span-2024-07-15/_search&pretty" -H 'Content-Type: application/json' -d'
+curl -u elastic:$PASSWORD --insecure -X POST "https://localhost:9200/my-prefix-jaeger-span-2024-07-15/_search" -H 'Content-Type: application/json' -d'
 {
   "query": {
     "nested": {
