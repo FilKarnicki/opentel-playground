@@ -13,7 +13,7 @@ parser.add_argument("--endTime", help="(optional) End time (nanos)", type=int, r
 
 args = parser.parse_args()
 
-http_otel_collector = "http://[YOUR COLLECTOR IP HERE]:4318"
+http_otel_collector = "http://localhost:4318"
 
 args_string = " ".join(sys.argv[1:])
 command = f"opentelemetry-instrument \

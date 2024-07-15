@@ -1,0 +1,226 @@
+{
+    "took": 2,
+    "timed_out": false,
+    "_shards": {
+        "total": 5,
+        "successful": 5,
+        "skipped": 0,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 3,
+            "relation": "eq"
+        },
+        "max_score": 3.583519,
+        "hits": [
+            {
+                "_index": "my-prefix-jaeger-span-2024-07-15",
+                "_id": "j1fmtZABhhZqnd9lrchK",
+                "_score": 3.583519,
+                "_source": {
+                    "traceID": "03d52dfd925d74df778c0fc6b480c03d",
+                    "spanID": "b9c86a013a03dd1d",
+                    "operationName": "transformation-abc",
+                    "references": [],
+                    "startTime": 1721038710313844,
+                    "startTimeMillis": 1721038710313,
+                    "duration": 48,
+                    "tags": [
+                        {
+                            "key": "otel.library.name",
+                            "type": "string",
+                            "value": "filtest.tracer"
+                        },
+                        {
+                            "key": "LES_ID",
+                            "type": "string",
+                            "value": "12345"
+                        },
+                        {
+                            "key": "BEAN_PELT_ID",
+                            "type": "string",
+                            "value": "9999"
+                        },
+                        {
+                            "key": "span.kind",
+                            "type": "string",
+                            "value": "internal"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "otlp"
+                        }
+                    ],
+                    "logs": [],
+                    "process": {
+                        "serviceName": "processing",
+                        "tags": [
+                            {
+                                "key": "telemetry.sdk.language",
+                                "type": "string",
+                                "value": "python"
+                            },
+                            {
+                                "key": "telemetry.sdk.name",
+                                "type": "string",
+                                "value": "opentelemetry"
+                            },
+                            {
+                                "key": "telemetry.sdk.version",
+                                "type": "string",
+                                "value": "1.25.0"
+                            },
+                            {
+                                "key": "telemetry.auto.version",
+                                "type": "string",
+                                "value": "0.46b0"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "_index": "my-prefix-jaeger-span-2024-07-15",
+                "_id": "klfptZABhhZqnd9lQcg-",
+                "_score": 2.7725885,
+                "_source": {
+                    "traceID": "58ee57f0d091c8df3d0b75c83507e3a5",
+                    "spanID": "9759900da7e98b1b",
+                    "operationName": "transformation-abc",
+                    "references": [],
+                    "startTime": 1721038880622689,
+                    "startTimeMillis": 1721038880622,
+                    "duration": 52,
+                    "tags": [
+                        {
+                            "key": "otel.library.name",
+                            "type": "string",
+                            "value": "filtest.tracer"
+                        },
+                        {
+                            "key": "LES_ID",
+                            "type": "string",
+                            "value": "12345"
+                        },
+                        {
+                            "key": "BEAN_PELT_ID",
+                            "type": "string",
+                            "value": "9999"
+                        },
+                        {
+                            "key": "span.kind",
+                            "type": "string",
+                            "value": "internal"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "otlp"
+                        }
+                    ],
+                    "logs": [],
+                    "process": {
+                        "serviceName": "processing",
+                        "tags": [
+                            {
+                                "key": "telemetry.sdk.language",
+                                "type": "string",
+                                "value": "python"
+                            },
+                            {
+                                "key": "telemetry.sdk.name",
+                                "type": "string",
+                                "value": "opentelemetry"
+                            },
+                            {
+                                "key": "telemetry.sdk.version",
+                                "type": "string",
+                                "value": "1.25.0"
+                            },
+                            {
+                                "key": "telemetry.auto.version",
+                                "type": "string",
+                                "value": "0.46b0"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "_index": "my-prefix-jaeger-span-2024-07-15",
+                "_id": "lFfqtZABhhZqnd9l3Mgv",
+                "_score": 2.7725885,
+                "_source": {
+                    "traceID": "0000000000000123",
+                    "spanID": "6b1258ad4f686b98",
+                    "operationName": "transformation-abc",
+                    "references": [
+                        {
+                            "refType": "CHILD_OF",
+                            "traceID": "0000000000000123",
+                            "spanID": "e399cb64883f7ce5"
+                        }
+                    ],
+                    "startTime": 1721038985912804,
+                    "startTimeMillis": 1721038985912,
+                    "duration": 34,
+                    "tags": [
+                        {
+                            "key": "otel.library.name",
+                            "type": "string",
+                            "value": "filtest.tracer"
+                        },
+                        {
+                            "key": "LES_ID",
+                            "type": "string",
+                            "value": "12345"
+                        },
+                        {
+                            "key": "BEAN_PELT_ID",
+                            "type": "string",
+                            "value": "9999"
+                        },
+                        {
+                            "key": "span.kind",
+                            "type": "string",
+                            "value": "internal"
+                        },
+                        {
+                            "key": "internal.span.format",
+                            "type": "string",
+                            "value": "otlp"
+                        }
+                    ],
+                    "logs": [],
+                    "process": {
+                        "serviceName": "processing",
+                        "tags": [
+                            {
+                                "key": "telemetry.sdk.language",
+                                "type": "string",
+                                "value": "python"
+                            },
+                            {
+                                "key": "telemetry.sdk.name",
+                                "type": "string",
+                                "value": "opentelemetry"
+                            },
+                            {
+                                "key": "telemetry.sdk.version",
+                                "type": "string",
+                                "value": "1.25.0"
+                            },
+                            {
+                                "key": "telemetry.auto.version",
+                                "type": "string",
+                                "value": "0.46b0"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

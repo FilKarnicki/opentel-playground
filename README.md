@@ -19,7 +19,7 @@
 
 `sudo az aks install-cli`
 
-`az aks get-credentials --resource-group [YOUR RG] --name [YOUR ]`
+`az aks get-credentials --resource-group [YOUR RG] --name [YOUR CLUSTER NAME]`
 
 `kubectl create namespace observability`
 
@@ -29,18 +29,14 @@
 
 `kubectl apply -f simplest.yaml`
 
-`kubectl patch service simplest-collector -p '{"spec": {"type": "LoadBalancer"}}'`
+`kubectl port-forward service/simple-prod-query 16686`
 
-`kubectl patch service simplest-query -p '{"spec": {"type": "LoadBalancer"}}'`
+`kubectl port-forward service/simple-prod-collector 4318`
 
-wait a few secs and check the external ip
-
-`kubectl get services `
+localhost
 
 UI port: 16686
 Collector-port: 4318
-
-5. replace the ip of the collector in main.py
 
 6. check out the help command
 
@@ -68,3 +64,49 @@ decide on a unique tracing id eg 1234
 
 ZZZ. after you're done with the demo, scale to 0 replicas or remove the namespace completely
 `kubectl scale --replicas=0 deployment/simplest`
+
+
+### using elasticsearch
+
+`kubectl create -f https://download.elastic.co/downloads/eck/2.13.0/crds.yaml`
+
+`kubectl apply -f https://download.elastic.co/downloads/eck/2.13.0/operator.yaml`
+
+`kubectl apply -f elastic.yaml`
+
+`kubectl apply -f using_elastic.yaml`
+
+`kubectl apply -f kibana.yaml`
+
+`PASSWORD=$(kubectl get secret quickstart-es-elastic-user -o go-template='{{.data.elastic | base64decode}}')`
+
+`kubectl create secret generic jaeger-secret --from-literal=ES_PASSWORD=$PASSWORD --from-literal=ES_USERNAME=elastic`
+
+`kubectl port-forward service/quickstart-kb-http 5601`
+
+`kubectl port-forward service/quickstart-es-http 9200`
+
+https://localhost:5601
+
+![alt text](image-1.png)
+
+querying where tags key is "LES_ID" and value is "12345"
+```
+curl -u elastic:$PASSWORD --insecure -X POST "https://localhost:9200/my-prefix-jaeger-span-2024-07-15/_search&pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "nested": {
+      "path": "tags",
+      "query": {
+        "bool": {
+          "must": [
+            { "match": { "tags.key": "LES_ID" } },
+            { "match": { "tags.value": "12345" } }
+          ]
+        }
+      }
+    }
+  }
+}
+'
+```

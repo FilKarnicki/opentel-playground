@@ -1,0 +1,181 @@
+{
+    "_index": "my-prefix-jaeger-span-2024-07-15",
+    "_id": "k1fqtZABhhZqnd9l0sjO",
+    "_version": 1,
+    "_score": 0,
+    "_source": {
+      "traceID": "0000000000000123",
+      "spanID": "14925ac0e4177abf",
+      "operationName": "om-nom",
+      "references": [
+        {
+          "refType": "CHILD_OF",
+          "traceID": "0000000000000123",
+          "spanID": "849e4027b2b04ba5"
+        }
+      ],
+      "startTime": 1721038983354929,
+      "startTimeMillis": 1721038983354,
+      "duration": 28,
+      "tags": [
+        {
+          "key": "otel.library.name",
+          "type": "string",
+          "value": "filtest.tracer"
+        },
+        {
+          "key": "span.kind",
+          "type": "string",
+          "value": "internal"
+        },
+        {
+          "key": "internal.span.format",
+          "type": "string",
+          "value": "otlp"
+        }
+      ],
+      "logs": [],
+      "process": {
+        "serviceName": "ingestion-service",
+        "tags": [
+          {
+            "key": "telemetry.sdk.language",
+            "type": "string",
+            "value": "python"
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "type": "string",
+            "value": "opentelemetry"
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "type": "string",
+            "value": "1.25.0"
+          },
+          {
+            "key": "telemetry.auto.version",
+            "type": "string",
+            "value": "0.46b0"
+          }
+        ]
+      }
+    },
+    "fields": {
+      "duration": [
+        28
+      ],
+      "spanID": [
+        "14925ac0e4177abf"
+      ],
+      "traceID": [
+        "0000000000000123"
+      ],
+      "startTimeMillis": [
+        "2024-07-15T10:23:03.354Z"
+      ],
+      "references": [
+        {
+          "spanID": [
+            "849e4027b2b04ba5"
+          ],
+          "traceID": [
+            "0000000000000123"
+          ],
+          "refType": [
+            "CHILD_OF"
+          ]
+        }
+      ],
+      "process.tags": [
+        {
+          "type": [
+            "string"
+          ],
+          "value": [
+            "python"
+          ],
+          "key": [
+            "telemetry.sdk.language"
+          ]
+        },
+        {
+          "type": [
+            "string"
+          ],
+          "value": [
+            "opentelemetry"
+          ],
+          "key": [
+            "telemetry.sdk.name"
+          ]
+        },
+        {
+          "type": [
+            "string"
+          ],
+          "value": [
+            "1.25.0"
+          ],
+          "key": [
+            "telemetry.sdk.version"
+          ]
+        },
+        {
+          "type": [
+            "string"
+          ],
+          "value": [
+            "0.46b0"
+          ],
+          "key": [
+            "telemetry.auto.version"
+          ]
+        }
+      ],
+      "process.serviceName": [
+        "ingestion-service"
+      ],
+      "operationName": [
+        "om-nom"
+      ],
+      "startTime": [
+        1721038983354929
+      ],
+      "tags": [
+        {
+          "type": [
+            "string"
+          ],
+          "value": [
+            "filtest.tracer"
+          ],
+          "key": [
+            "otel.library.name"
+          ]
+        },
+        {
+          "type": [
+            "string"
+          ],
+          "value": [
+            "internal"
+          ],
+          "key": [
+            "span.kind"
+          ]
+        },
+        {
+          "type": [
+            "string"
+          ],
+          "value": [
+            "otlp"
+          ],
+          "key": [
+            "internal.span.format"
+          ]
+        }
+      ]
+    }
+  }

@@ -1,0 +1,29 @@
+apiVersion: jaegertracing.io/v1
+kind: Jaeger
+metadata:
+  name: simple-prod
+spec:
+  strategy: production
+  collector:
+    maxReplicas: 5
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+  storage:
+    type: elasticsearch
+    options:
+      es:
+        server-urls: https://quickstart-es-http:9200
+        index-prefix: my-prefix
+        tls:
+          ca: /es/certificates/ca.crt
+    secretName: jaeger-secret
+  volumeMounts:
+    - name: certificates
+      mountPath: /es/certificates/
+      readOnly: true
+  volumes:
+    - name: certificates
+      secret:
+        secretName: quickstart-es-http-certs-public
